@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- 실행에는 영향 끼치지 않으나, 명시적으로 기입  
+		등록된 빈들을 묶어줌
+	-->
+	<context:annotation-config />
+
+	<!-- 
+		지정된 패키지 및 그 하위 패키지에서
+		@Component, @Service, @Controller, (@RestController, @ControllerAdvice - 상위버젼)
+		어노테이션이 부착된 클래스를 스캔해서 스프링의 빈으로 자동 등록한다.
+		<context:annotation-config /> 설정의 영향으로 
+		@AutoWired, @Required, @Resource, @Qualifier 등의 어노테이션과 관련된 특별한 처리도 하게 된다.
+	 -->
+
+	<context:component-scan base-package="com.sample.demo1" />
+
+</beans>

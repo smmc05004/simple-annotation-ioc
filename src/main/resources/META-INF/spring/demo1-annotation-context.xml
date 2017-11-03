@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!--
+		<context:annotation-config /> 태그는 
+		@Required, @AutoWired, @Resource, @Qulifier, @PostContruct, @PreDestory 등의
+		어노테이션 설정 정보를 감지하고 처리하는 특별한 클래스들을 스프링의 빈으로 등록시켜서
+		설정된 어노테이션과 관련된 처리를 활성화시킨다.
+	-->
+	<context:annotation-config />
+	
+	<!--  	
+		스프링의 빈으로 등록만 하고 @AutoWired 설정하면, 따로 조립하지 않아도 자동으로 매칭됨
+		단, bean 그래프에 연결관계는 나타나지 않음
+	-->			
+		<bean id="eventService" class="com.sample.demo1.EventServiceImpl"></bean>
+		<bean id="smsMessageSender" class="com.sample.demo1.SmsMessageSenderImpl"></bean>
+ 	
+	
+
+
+
+</beans>

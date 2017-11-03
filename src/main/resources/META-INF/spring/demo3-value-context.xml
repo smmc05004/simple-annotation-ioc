@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+<!-- 
+	빈을 직접 등록하는 경우에는 
+	<property />태그를 활용하면,
+	기본자료형 타입이나 String 타입의 변수에 값을 주입할 수 있다.
+	@AutoWired는 객체를 주입할 경우에만 사용가능
+-->
+<!--
+	<bean id="fileProcessor" class="com.sample.demo3.FileProcessor">
+		<property name="directory" value="c:/temp" ></property>
+		<property name="filename" value="temp.backup" ></property>
+		<property name="maxSize" value="1000000" ></property>
+	</bean>
+-->
+
+<!-- 
+	빈을 직접 등록하는 경우에는 
+	<property />태그를 활용하면,
+	기본자료형 타입이나 String 타입의 변수에 ${표현식}을 사용해서 값을 주입할 수 있다.
+	value를 주입해 줘야 하는 경우에는 properties파일 만들어서 @Value로 값을 주입
+-->
+<!-- 
+	<bean id="fileProcessor" class="com.sample.demo3.FileProcessor">
+		<property name="directory" value="${file.backup.directory}" />
+		<property name="filename" value="${file.backup.filename}" />
+		<property name="maxSize" value="${file.backup.maxSize}" />
+	</bean>
+-->
+
+ 	<context:annotation-config />
+ 	
+ 	<context:component-scan base-package="com.sample.demo3" />
+ 	
+ 	<context:property-placeholder location="classpath:/META-INF/config/config.properties"/>
+ 
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
